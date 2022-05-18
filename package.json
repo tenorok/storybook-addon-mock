@@ -11,8 +11,6 @@
   "scripts": {
     "clean": "yarn workspace storybook-addon-mock clean",
     "build": "yarn workspace storybook-addon-mock build",
-    "lint": "yarn workspaces run lint:fix",
-    "test": "yarn workspaces run test",
     "ci": "yarn run lint && yarn run test && yarn run build",
     "dedup": "yarn-deduplicate"
   },
