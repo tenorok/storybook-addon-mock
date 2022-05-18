@@ -10,6 +10,7 @@
   },
   "scripts": {
     "clean": "yarn workspace storybook-addon-mock clean",
+    "docs": "yarn workspace storybook-addon-mock-docs run storybook",
     "build": "yarn workspace storybook-addon-mock build",
     "ci": "yarn run lint && yarn run test && yarn run build",
     "dedup": "yarn-deduplicate"
