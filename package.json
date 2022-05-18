@@ -1,14 +1,18 @@
 {
   "private": true,
-  "name": "storybook-addon-mock",
+  "name": "storybook-addon-mock-workspace",
   "workspaces": [
     "packages/*"
   ],
+  "engines": {
+    "yarn": ">=1.22.0",
+    "node": "16"
+  },
   "scripts": {
     "clean": "yarn workspace storybook-addon-mock clean",
-    "build": "yarn workspace storybook-addon-mock clean",
-    "lint": "yarn workspaces lint:fix",
-    "test": "yarn workspaces test",
+    "build": "yarn workspace storybook-addon-mock build",
+    "lint": "yarn workspaces run lint:fix",
+    "test": "yarn workspaces run test",
     "ci": "yarn run lint && yarn run test && yarn run build",
     "dedup": "yarn-deduplicate"
   },

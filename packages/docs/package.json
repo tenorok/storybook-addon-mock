@@ -1,14 +1,10 @@
 {
-	"private": true,
-	"name": "storybook-addon-mock",
-	"workspaces": [
-	  "packages/*"
-	],
+	"name": "storybook-addon-mock-docs",
 	"scripts": {
 	  "clean": "rm -rf dist",
 	  "build": "yarn run clean && babel src -d dist --ignore **/*.test.js",
 	  "lint": "eslint .",
-	  "lint:fix": "yarn run lint --fix",
+	  "lint:fix": "echo \"Warning: no lint specified\"",
 	  "test": "jest src",
 	  "ci": "yarn run lint && yarn run test && yarn run build",
 	  "deploy-storybook": "yarn run build && storybook-to-ghpages",
