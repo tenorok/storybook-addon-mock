@@ -16,6 +16,7 @@ export default {
   <SomeOtherComponent funcProp={(a) => a.id} />
 </MyComponent>
 `,
+    mockData: ['global'],
   },
 };
 
@@ -28,11 +29,17 @@ Primary.args = {
   primary: true,
   label: 'Button',
 };
+Primary.parameters = {
+  mockData: [],
+}
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   label: 'Button',
 };
+Secondary.parameters = {
+  mockData: ['hello'],
+}
 
 export const Large = Template.bind({});
 Large.args = {

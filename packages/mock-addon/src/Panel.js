@@ -1,20 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useAddonState, useChannel, useParameter } from "@storybook/api";
 import { AddonPanel } from "@storybook/components";
-import { ADDON_ID, EVENTS } from "./utils/constants";
+import { ADDON_ID, EVENTS, PARAM_KEY } from "./utils/constants";
+import faker from './utils/faker';
 import { PanelContent } from "./components/PanelContent";
 
 export const Panel = (props) => {
-  // https://storybook.js.org/docs/react/addons/addons-api#useaddonstate
-  const [results, setState] = useAddonState(ADDON_ID, {
-    danger: [],
-    warning: [],
-  }); // https://storybook.js.org/docs/react/addons/addons-api#usechannel
-  console.log('hello');
-  // const paramData = useParameter(PARAM_KEY, "");
+  const [mockData, setState] = useAddonState(ADDON_ID, []);
+
+  const paramData = useParameter(PARAM_KEY, []);
+  
   const emit = useChannel({
-    [EVENTS.RESULT]: (newResults) => setState(newResults),
+    [EVENTS.SEND]: (newMockData) => setState(newMockData),
   });
+
+  useEffect(() => {
+    faker.makeInitialRequestMap(paramData);
+    emit(EVENTS.SEND, faker.getRequests());
+  }, [paramData])
+  
+  // onSkip
+
+  // onRequestChange
+  console.log(mockData, 'mockData');
   return (
     <AddonPanel {...props}>
       <PanelContent
