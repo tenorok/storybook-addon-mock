@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { styled, themes, convert } from "@storybook/theming";
-import { TabsState, Placeholder, Button } from "@storybook/components";
+import { TabsState, Placeholder, Button, ScrollArea, BooleanControl, Badge, Field } from "@storybook/components";
 import { List } from "./List";
 
 export const RequestDataButton = styled(Button)({
@@ -57,3 +57,11 @@ export const PanelContent = ({ results, fetchData, clearData }) => (
     </div>
   </TabsState>
 );
+
+export const PanelContainer = ({ mockData }) => {
+  return (
+    <ScrollArea>
+      <Field label="Method"><Badge status="warning">GET</Badge></Field>
+    </ScrollArea>
+  );
+}

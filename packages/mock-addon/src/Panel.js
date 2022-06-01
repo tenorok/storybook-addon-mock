@@ -3,7 +3,7 @@ import { useAddonState, useChannel, useParameter } from "@storybook/api";
 import { AddonPanel } from "@storybook/components";
 import { ADDON_ID, EVENTS, PARAM_KEY } from "./utils/constants";
 import faker from './utils/faker';
-import { PanelContent } from "./components/PanelContent";
+import { PanelContent, PanelContainer } from "./components/PanelContent";
 
 export const Panel = (props) => {
   const [mockData, setState] = useAddonState(ADDON_ID, []);
@@ -22,10 +22,9 @@ export const Panel = (props) => {
   // onSkip
 
   // onRequestChange
-  console.log(mockData, 'mockData');
   return (
     <AddonPanel {...props}>
-      <PanelContent
+      {/* <PanelContent
         results={results}
         fetchData={() => {
           emit(EVENTS.REQUEST);
@@ -33,7 +32,8 @@ export const Panel = (props) => {
         clearData={() => {
           emit(EVENTS.CLEAR);
         }}
-      />
+      /> */}
+      <PanelContainer />
     </AddonPanel>
   );
 };

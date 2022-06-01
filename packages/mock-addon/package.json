@@ -32,6 +32,10 @@
     "prerelease": "zx scripts/prepublish-checks.mjs",
     "release": "yarn build && auto shipit"
   },
+  "dependencies": {
+    "mock-xmlhttprequest": "^7.0.3",
+    "path-to-regexp": "^6.2.0"
+  },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.12.3",
